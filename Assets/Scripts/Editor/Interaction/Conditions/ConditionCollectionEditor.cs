@@ -22,8 +22,6 @@ public class ConditionCollectionEditor : EditorWithSubEditors<ConditionEditor, C
 
     private void OnEnable ()
     {
-        conditionCollection = (ConditionCollection)target;
-
         if (target == null)
         {
             DestroyImmediate (this);
@@ -34,6 +32,7 @@ public class ConditionCollectionEditor : EditorWithSubEditors<ConditionEditor, C
         conditionsProperty = serializedObject.FindProperty(conditionCollectionPropRequiredConditionsName);
         reactionCollectionProperty = serializedObject.FindProperty(conditionCollectionPropReactionCollectionName);
 
+		conditionCollection = (ConditionCollection)target;
         CheckAndCreateSubEditors (conditionCollection.requiredConditions);
     }
 
